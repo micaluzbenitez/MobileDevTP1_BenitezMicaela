@@ -4,19 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class VirtualJoystick : MonoBehaviour, IDragHandler
+public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] RectTransform stick = null;
     [SerializeField] Image background = null; // Imagen para mover
 
     //public string player = ""; // Player al que le queremos pasar el input 
     public float limit = 250f; // Fuente de referencia
-
-    public void OnPointerDown(PointerEventData eventData) // Esto es para saber que no estoy clickeando
-    {
-        background.color = Color.red;
-        stick.anchoredPosition = ConverToLocal(eventData);
-    }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -27,6 +21,12 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler
 
         float x = pos.x / limit;
         SetHorizontal(x);
+    }
+
+    public void OnPointerDown(PointerEventData eventData) // Esto es para saber que no estoy clickeando
+    {
+        background.color = Color.red;
+        stick.anchoredPosition = ConverToLocal(eventData);
     }
 
     // Por otro lado, si notros seteamos el eje, lo estamos cambiando de calor, tenemos que tambien
