@@ -324,10 +324,10 @@ public class GameManager : MonoBehaviour
 	void EmpezarCarrera()
 	{
 		Player1.GetComponent<Frenado>().RestaurarVel();
-		Player1.GetComponent<ControlDireccion>().Habilitado = true;
+		Player1.GetComponent<ControlDireccion>().habilitado = true;
 			
 		Player2.GetComponent<Frenado>().RestaurarVel();
-		Player2.GetComponent<ControlDireccion>().Habilitado = true;
+		Player2.GetComponent<ControlDireccion>().habilitado = true;
 	}
 	
 	void FinalizarCarrera()
@@ -483,8 +483,8 @@ public class GameManager : MonoBehaviour
 		Player1.GetComponent<Frenado>().RestaurarVel();
 		Player2.GetComponent<Frenado>().RestaurarVel();
 		//cancela la direccion
-		Player1.GetComponent<ControlDireccion>().Habilitado = false;
-		Player2.GetComponent<ControlDireccion>().Habilitado = false;
+		Player1.GetComponent<ControlDireccion>().habilitado = false;
+		Player2.GetComponent<ControlDireccion>().habilitado = false;
 		//les de direccion
 		Player1.transform.forward = Vector3.forward;
 		Player2.transform.forward = Vector3.forward;
