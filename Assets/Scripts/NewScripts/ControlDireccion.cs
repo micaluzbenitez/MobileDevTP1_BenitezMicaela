@@ -1,17 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class ControlDireccion : MonoBehaviour 
+public class ControlDireccion : MonoBehaviour  // Cliente
 {
 	public bool habilitado = true;
-	public int playerNumber = 1;
+	public string playerNumber = "1";
 
-	CamionInputTouch _input;
+	InputCamion _input;
 	float giro;
 
 	private void Start () 
 	{
-		_input = CamionesInputManager.Instance.Player1Input;
+		_input = InputManager.Instance.GetInput(playerNumber);
 	}
 	
 	private void Update () 

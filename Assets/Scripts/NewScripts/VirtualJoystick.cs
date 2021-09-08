@@ -6,10 +6,10 @@ using UnityEngine.EventSystems;
 
 public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
+    [SerializeField] public string player = "1"; // Player al que le queremos pasar el input 
     [SerializeField] RectTransform stick = null;
     [SerializeField] Image background = null; // Imagen para mover
 
-    //public string player = ""; // Player al que le queremos pasar el input 
     public float limit = 250f; // Fuente de referencia
 
     public void OnDrag(PointerEventData eventData)
@@ -58,6 +58,6 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler,
 
     private void SetHorizontal(float val)
     {
-        CamionesInputManager.Instance.Player1Input.SetHorizontal(val);
+        InputManager.Instance.GetInput(player).SetHorizontal(val);
     }
 }
